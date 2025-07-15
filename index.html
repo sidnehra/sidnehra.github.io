@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sidharth Nehra | Full-Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      line-height: 1.6;
+    }
+    nav {
+      background-color: rgba(15, 12, 41, 0.8);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0, 255, 255, 0.2);
+    }
+    nav .nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 0 20px;
+  position: relative;
+}
+    nav .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #0ff;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    nav .logo:hover {
+      transform: scale(1.1);
+      color: #fff;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex: 1;
+    }
+    nav ul li a {
+      color: #0ff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #fff;
+      text-shadow: 0 0 10px #0ff;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 20px 40px;
+    }
+    .header-text {
+      flex: 1;
+      animation: fadeInLeft 1s ease;
+    }
+    .header-text h1 {
+      font-size: 3rem;
+      color: #0ff;
+      font-family: 'Orbitron', sans-serif;
+    }
+    .typewriter {
+      font-size: 1.2rem;
+      font-family: monospace;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .typewriter .static {
+      color: #fff;
+    }
+    .typewriter .dynamic {
+      color: #0ff;
+      border-right: 2px solid #0ff;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #0ff; }
+    }
+    header img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 4px solid #0ff;
+      box-shadow: 0 0 40px #0ff;
+      object-fit: cover;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+      animation: fadeInRight 1s ease;
+      transform: rotate(-1.5deg);
+    }
+    header img:hover {
+  transform: scale(1.05) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 0 60px #00ffffb7;
+}
+    section {
+      margin: 60px 0;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s ease forwards;
+    }
+    section:nth-of-type(2) { animation-delay: 0.3s; }
+    section:nth-of-type(3) { animation-delay: 0.6s; }
+    section:nth-of-type(4) { animation-delay: 0.9s; }
+    section h2 {
+      color: #0ff;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-left: 6px solid #0ff;
+      padding-left: 14px;
+      font-family: 'Orbitron', sans-serif;
+    }
+    .skills ul, .contact ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .skills li, .contact li {
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+    .skills li::before, .contact li::before {
+      content: '\2022';
+      color: #0ff;
+      position: absolute;
+      left: 0;
+    }
+    .project img, .skills img {
+      width: 100%;
+      max-width: 500px;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    }
+    a {
+      color: #0ff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    @media screen and (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      header img {
+        margin-top: 30px;
+        width: 200px;
+        height: 200px;
+      }
+      .header-text h1 {
+        font-size: 2.4rem;
+      }
+      section h2 {
+        font-size: 1.5rem;
+      }
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+      /* Social icon hover */
+    .social-icons a{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:42px;height:42px;
+      border-radius:50%;
+      background:rgba(0,255,255,0.1);
+      border:1px solid #0ff;
+      transition:transform .3s ease, box-shadow .3s ease;
+    }
+    .social-icons a:hover{
+      transform:translateY(-4px) scale(1.15) rotate(5deg);
+      box-shadow:0 0 15px #00ffff;
+    }
+    .social-icons a i{color:#0ff;font-size:1.1rem;transition:color .3s}
+    .social-icons a:hover i{color:#fff;}
+  
+    /* Project section hover effect */
+    #projects div {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    #projects div:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+    }
+      /* CV button */
+    .btn-cv{
+      display:inline-flex;align-items:center;gap:.4rem;
+      padding:.5rem 1.2rem;
+      font-weight:700;
+      color:#fff;
+      background:linear-gradient(135deg,#ff8c00,#000); /* orange to black */
+      border:2px solid #ff8c00;
+      border-radius:999px;
+      transition:transform .3s,box-shadow .3s;
+    }
+    .btn-cv:hover{
+      transform:translateY(-3px);
+      box-shadow:0 0 15px #ff8c00;
+    }
+    /* Small CV icon button */
+    .btn-cv {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #ff8c00, #000);
+      color: #fff;
+      border: 2px solid #ff8c00;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn-cv:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 12px #ff8c00;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const typewriter = document.querySelector(".typewriter .dynamic");
+      const words = [
+        "a Full-Stack Developer",
+        "a Problem Solver",
+        "a Linux Administrator",
+        "a Cybersecurity Enthusiast"
+      ];
+      let wordIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function type() {
+        const current = words[wordIndex];
+        const displayed = current.substring(0, charIndex);
+        typewriter.textContent = displayed;
+
+        if (!isDeleting && charIndex < current.length) {
+          charIndex++;
+        } else if (isDeleting && charIndex > 0) {
+          charIndex--;
+        } else {
+          isDeleting = !isDeleting;
+          if (!isDeleting) {
+            wordIndex = (wordIndex + 1) % words.length;
+          }
+        }
+
+        setTimeout(type, isDeleting ? 50 : 120);
+      }
+
+      type();
+    });
+  </script>
+</head>
+<body>
+  <nav>
+  <div class="nav-container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; padding: 0 20px;">
+    <div class="logo">Portfolio</div>
+    <ul style="display: flex; gap: 30px; align-items: center;">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="./Sidharth_Nehra_CV.pdf" class="btn-cv" download><i class="fas fa-file-arrow-down"></i></a></li>
+    </ul>
+  </div>
+</nav>
+
+  <div class="container">
+    <header id="home" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; padding: 60px 20px 40px;">
+      <div class="header-text" style="max-width: 500px;">
+        <p style="color:#ccc; font-size:1.05rem; margin-bottom:.3rem">Hello, I'm</p>
+        <h1>Sidharth Nehra</h1>
+        <div class="typewriter">
+          <span class="static">I'm</span>
+          <span class="dynamic"></span>
+        </div>
+        <div class="social-icons" style="margin-top: 1rem; display: flex; gap: 1rem;">
+  <a href="https://github.com/sidnehra" target="_blank" aria-label="GitHub">
+    <i class="fab fa-github"></i>
+  </a>
+  <a href="https://linkedin.com/in/sidharth-nehra-1025b6243" target="_blank" aria-label="LinkedIn">
+    <i class="fab fa-linkedin"></i>
+  </a>
+  <a href="mailto:jiknwr@gmail.com" aria-label="Email">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href="https://instagram.com/sid__nehra" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+</div>
+        
+      </div>
+      <img src="profile.jpg" alt="Sidharth Nehra" onerror="this.src='https://via.placeholder.com/300'">
+    </header>
+
+    <section id="about-skills" style="display:flex; gap:2rem; flex-wrap:wrap; justify-content:space-between; align-items:flex-start;">
+      <div id="about" class="skills" style="flex:1 1 48%;">
+        <h2>About Me</h2>
+        <ul>
+          <li>Skilled in full-stack web development</li>
+          <li>Proficient in DSA with Java</li>
+          <li>Builds scalable, responsive apps</li>
+          <li>Strong frontend & backend knowledge</li>
+          <li>Comfortable with Linux & security tools</li>
+        </ul>
+      </div>
+      <div id="skills" class="skills" style="flex:1 1 48%;">
+        <h2>Skills</h2>
+        <ul>
+          <li>HTML, CSS, JavaScript, React.js</li>
+          <li>Node.js, Express.js</li>
+          <li>Java (DSA), Python</li>
+          <li>Git & GitHub, Linux</li>
+          <li>Nmap, Wireshark, Burp Suite</li>
+        </ul>
+      </div>
+
+    <section id="projects" style="margin: 4rem 0; width: 100%; display: flex; justify-content: center;">
+  <div style="width: 100%; max-width: 100%; background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 12px; box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);">
+  <h2 style="text-align:center; border-left: none; padding-left: 0;">Projects</h2>
+  <h3 style="color:#0ff; margin-bottom:10px; text-align:left;">Keylogger in Python</h3>
+  <ul style="list-style: none; padding-left: 0; text-align: left;">
+    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+      <span style="position: absolute; left: 0; color: #0ff;">•</span> Developed a keylogger using Python and the <code>pynput</code> library.
+    </li>
+    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+      <span style="position: absolute; left: 0; color: #0ff;">•</span> Captured and logged keystrokes in real-time securely.
+    </li>
+    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+      <span style="position: absolute; left: 0; color: #0ff;">•</span> Automatically saved logs to a hidden file for later review.
+    </li>
+    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+      <span style="position: absolute; left: 0; color: #0ff;">•</span> Implemented email functionality to send logs at intervals.
+    </li>
+    <li style="margin-bottom: 10px; padding-left: 20px; position: relative;">
+      <span style="position: absolute; left: 0; color: #0ff;">•</span> Used threading to keep logging active in the background without UI.
+    </li>
+  </ul>
+  </div>
+</section>
+
+    <section id="contact">
+  <h2>Contact</h2>
+  <ul class="contact-list" style="list-style:none;padding-left:0;">
+    <li style="margin-bottom:10px;display:flex;align-items:center;gap:.5rem;">
+      <i class="fas fa-envelope" style="color:#0ff;"></i>
+      <strong>Email:</strong> <a href="mailto:jiknwr@gmail.com">jiknwr@gmail.com</a>
+    </li>
+    <li style="margin-bottom:10px;display:flex;align-items:center;gap:.5rem;">
+      <i class="fab fa-linkedin" style="color:#0ff;"></i>
+      <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sidharth-nehra-1025b6243" target="_blank">linkedin.com/in/sidharth-nehra</a>
+    </li>
+    <li style="margin-bottom:10px;display:flex;align-items:center;gap:.5rem;">
+      <i class="fab fa-github" style="color:#0ff;"></i>
+      <strong>GitHub:</strong> <a href="https://github.com/sidnehra" target="_blank">github.com/sidnehra</a>
+    </li>
+    <li style="margin-bottom:10px;display:flex;align-items:center;gap:.5rem;">
+      <i class="fab fa-instagram" style="color:#0ff;"></i>
+      <strong>Instagram:</strong> <a href="https://instagram.com/sid__nehra" target="_blank">@sid__nehra</a>
+    </li>
+  </ul>
+</section>
+    </div>
+</body>
+</html>
